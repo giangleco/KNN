@@ -1,0 +1,19 @@
+I.Tại sao phải trộn dữ liệu ngẫu nhiên trước khi huấn luyện mô hình?
+-Việc trộn dữ liệu ngẫu nhiên (randomize) trước khi chia thành tập huấn và tập kiểm tra là một bước vô cùng quan trọng trong quá trình xây dựng mô hình học máy, bao gồm cả thuật toán KNN. Dưới đây là những lý do chính:
+
+1. Đảm bảo tính đại diện:
+ Dữ liệu gốc có thể có thứ tự: Nếu dữ liệu ban đầu được sắp xếp theo một tiêu chí nào đó (ví dụ: theo thứ tự tăng dần của một thuộc tính), việc chia tập dữ liệu theo thứ tự này sẽ dẫn đến tập huấn và tập kiểm tra có phân bố không đồng đều. Điều này có thể làm giảm độ chính xác của mô hình khi áp dụng trên dữ liệu mới.
+   Randomize giúp phân phối đều các mẫu: Bằng cách xáo trộn ngẫu nhiên dữ liệu, ta đảm bảo rằng cả tập huấn và tập kiểm tra đều có sự đại diện tương đối đồng đều cho tất cả các lớp (trong trường hợp Iris là 3 lớp hoa). Điều này giúp mô hình học được các đặc trưng chung của toàn bộ tập dữ liệu chứ không chỉ tập trung vào một phần nhỏ nào đó.
+
+2. Ngăn chặn overfitting:
+ Overfitting là hiện tượng mô hình học quá kỹ các đặc trưng của tập huấn, dẫn đến khả năng tổng quát hóa kém trên tập kiểm tra.
+    Randomize giúp giảm thiểu overfitting: Bằng cách chia tập dữ liệu một cách ngẫu nhiên, ta giảm khả năng mô hình học thuộc lòng các mẫu huấn luyện. Điều này giúp mô hình linh hoạt hơn và có thể dự đoán chính xác hơn trên dữ liệu chưa từng thấy.
+
+3. Tăng độ tin cậy của kết quả:
+ Kết quả đánh giá mô hình sẽ ổn định hơn: Nếu ta chạy nhiều lần thí nghiệm với các tập huấn và tập kiểm tra khác nhau (được tạo ra từ việc randomize dữ liệu), ta sẽ có được một đánh giá chính xác hơn về hiệu suất của mô hình.
+    Giảm thiểu ảnh hưởng của sự sắp xếp dữ liệu: Việc randomize giúp loại bỏ sự phụ thuộc vào thứ tự ban đầu của dữ liệu, làm cho kết quả đánh giá trở nên khách quan hơn.
+
+Ví dụ:
+ Giả sử tập dữ liệu Iris ban đầu được sắp xếp theo thứ tự tăng dần của chiều dài cánh hoa. Nếu không trộn ngẫu nhiên, có thể xảy ra trường hợp tất cả các hoa Iris versicolor đều nằm trong tập huấn, trong khi tập kiểm tra chỉ chứa hoa Iris setosa và Iris virginica. Điều này sẽ khiến mô hình học được cách phân biệt Iris versicolor rất tốt, nhưng lại không thể phân biệt được Iris setosa và Iris virginica.
+Tóm lại:
+    Việc trộn dữ liệu ngẫu nhiên là một bước tiền xử lý quan trọng trong học máy, giúp đảm bảo tính khách quan, độ tin cậy và khả năng tổng quát hóa của mô hình.
