@@ -28,16 +28,18 @@ class KNN:
     def predict_batch(self, X):
         y_pred = [self.predict(x) for x in X]
         return y_pred#danh sách dự đoán các nhãn
-def train_test_split(X, y, test_size=0.3):
-    indices = np.arange(X.shape[0])#Tạo một mảng gồm các chỉ số từ 0 đến số lượng hàng trong X.
-    np.random.shuffle(indices)#Trộn ngẫu nhiên các chỉ số trong mảng indices.
-    test_size = int(len(X) * test_size)#Tính toán số lượng mẫu dữ liệu cho tập kiểm tra dựa trên test_size.
-    train_indices = indices[:-test_size]#ấy các chỉ số từ đầu mảng đến trước chỉ số của phần tử thứ test_size
-    test_indices = indices[-test_size:]
-    return X[train_indices], X[test_indices], y[train_indices], y[test_indices]
-def accuracy_score(y_true, y_pred):
-    return np.sum(y_true == y_pred) / len(y_true)
-start_time = time.  time()  # Lấy thời gian bắt đầu
+    @staticmethod
+    def train_test_split(X, y, test_size=0.3):
+        indices = np.arange(X.shape[0])#Tạo một mảng gồm các chỉ số từ 0 đến số lượng hàng trong X.
+        np.random.shuffle(indices)#Trộn ngẫu nhiên các chỉ số trong mảng indices.
+        test_size = int(len(X) * test_size)#Tính toán số lượng mẫu dữ liệu cho tập kiểm tra dựa trên test_size.
+        train_indices = indices[:-test_size]#ấy các chỉ số từ đầu mảng đến trước chỉ số của phần tử thứ test_size
+        test_indices = indices[-test_size:]
+        return X[train_indices], X[test_indices], y[train_indices], y[test_indices]
+    @staticmethod
+    def accuracy_score(y_true, y_pred):
+        return np.sum(y_true == y_pred) / len(y_true)
+start_time = time.  time()  # Lấy thời gian bắt đầu 
 data = pd.read_csv('Iris.csv')
 # Lấy các đặc trưng và nhãn
 X = data.iloc[:, :-1].values  # Lấy tất cả các cột trừ cột cuối cùng
@@ -47,12 +49,12 @@ label_mapping = {label: idx for idx, label in enumerate(np.unique(y))}
 #np.unique để tìm ra giá trị duy nhất trong mảng
 #Hamd enumerate để lấy chỉ số và giá trị
 y = np.array([label_mapping[label] for label in y])#
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)#phân chia thành 70-30
+X_train, X_test, y_train, y_test = KNN.train_test_split(X, y, test_size=0.3)#phân chia thành 70-30
 # Chia dữ liệu thành tập huấn luyện và tập kiểm tra (70-30)
 model = KNN(10)
 model.duLieuHL(X_train, y_train)
 y_pred = model.predict_batch(X_test)#Dự đoán nhãn cho tập dữ liệu x_test
-acc = accuracy_score(y_test, y_pred)                                
+acc = KNN.accuracy_score(y_test, y_pred)                                
 end_time = time.time()  # Lấy thời gian kết thúc
 print("Số phần tử test đúng:",np.sum(y_pred==y_test),"/",len(y_test))
 print(f'Accuracy: {acc*100:.2f}',"%")
