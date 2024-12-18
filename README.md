@@ -2,11 +2,11 @@
 # Ứng dụng thuật toán K-nearst neighbors trên bộ dữ liệu iris(bộ dữ liêu các loài hòa)
 ## I.Giới thiệu chung:
 ### 1.Khái niệm
- K-nearest neighbor là một trong những thuật toán supervised-learning đơn giản nhất (mà hiệu quả trong một vài trường hợp) trong Machine Learning. Khi training, thuật toán này không học một điều gì từ dữ liệu training (đây cũng là lý do thuật toán này được xếp vào loại lazy learning), mọi tính toán được thực hiện khi nó cần dự đoán kết quả của dữ liệu mới. K-nearest neighbor có thể áp dụng được vào cả hai loại của bài toán Supervised learning là Classification(phân loại) và Regression(hồi quy).\
-
+ K-nearest neighbor là một trong những thuật toán supervised-learning đơn giản nhất (mà hiệu quả trong một vài trường hợp) trong Machine Learning. Khi training, thuật toán này không học một điều gì từ dữ liệu training (đây cũng là lý do thuật toán này được xếp vào loại lazy learning), mọi tính toán được thực hiện khi nó cần dự đoán kết quả của dữ liệu mới. K-nearest neighbor có thể áp dụng được vào cả hai loại của bài toán Supervised learning là Classification(phân loại) và Regression(hồi quy).
  
  -vd: Ví dụ về 1NN. Các hình tròn là các điểm dữ liệu huấn luyện. Các hình khác màu thể hiện các lớp khác nhau. Các vùng nền thể hiện các điểm được phân loại vào lớp có màu tương ứng khi sử
-dựng 1NN (Nguồn: <https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm>).
+dựng 1NN\ 
+(Nguồn: <https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm>).
 
 ![alt text](image-2.png)
 ### 2.Ý tương thuật toán KNN
