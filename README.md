@@ -58,10 +58,10 @@ không gian, từ đó công việc của chúng ta là sẽ tìm k điểm gầ
 • Minkowski: Cung cấp một sự linh hoạt cao, cho phép điều chỉnh độ nhạy cảm của khoảng cách đối với các chiều khác nhau của dữ liệu.
 
 ## III.Các khởi động chương trình
--Chạy file OOP_KNN.py
+-Chạy file OOP_KNN.py(thực hiện bài toán với vòng for)
 
     python3 OOP_KNN.py
--chạy file KNN.py
+-chạy file KNN.py(thực hiện với bài toán với thư viện numpy)
 
     python3 KKN.py
 ## IV. Hỗ trợ
